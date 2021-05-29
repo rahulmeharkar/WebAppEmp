@@ -30,12 +30,12 @@ namespace WebAppEmp
             services.AddControllers();
             services.AddCors(c =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,AppDbContext db)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AppDbContext db)
         {
             if (env.IsDevelopment())
             {
@@ -44,7 +44,7 @@ namespace WebAppEmp
 
             db.Database.EnsureCreated();
 
-            app.UseHttpsRedirection(); 
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

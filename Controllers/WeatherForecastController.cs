@@ -15,6 +15,7 @@ namespace WebAppEmp.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [EnableCors("AllowOrigin")]
     public class WeatherForecastController : ControllerBase
     {
         private readonly AppDbContext context;
@@ -26,8 +27,7 @@ namespace WebAppEmp.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        [Route("/addcountry")]
-        [EnableCors("AllowOrigin")]
+        [Route("/addcountry")]  
         public async Task<ActionResult<Country>> AddCountry(Country cnt)
         {
             try
@@ -45,8 +45,7 @@ namespace WebAppEmp.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        [Route("/listcountry")]
-        [EnableCors("AllowOrigin")]
+        [Route("/listcountry")]         
         public async Task<ActionResult<IEnumerable<Country>>> GetCountry()
         {
             try
@@ -62,8 +61,7 @@ namespace WebAppEmp.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        [Route("/addstate")]
-        [EnableCors("AllowOrigin")]
+        [Route("/addstate")]      
         public async Task<ActionResult<State>> AddState(State state)
         {
             try
@@ -81,8 +79,7 @@ namespace WebAppEmp.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        [Route("/liststate")]
-        [EnableCors("AllowOrigin")]
+        [Route("/liststate")]        
         public async Task<ActionResult<IEnumerable<State>>> GetState(Int32 countryid)
         {
             try
@@ -99,7 +96,6 @@ namespace WebAppEmp.Controllers
         [HttpPost]
         [Route("[action]")]
         [Route("/addcity")]
-        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<City>> AddCity(City city)
         {
             try
@@ -118,7 +114,6 @@ namespace WebAppEmp.Controllers
         [HttpGet]
         [Route("[action]")]
         [Route("/listcity")]
-        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<IEnumerable<City>>> GetCity(Int32 stateid)
         {
             try
@@ -135,7 +130,6 @@ namespace WebAppEmp.Controllers
         [HttpPost]
         [Route("[action]")]
         [Route("/adddepartment")]
-        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<Department>> AddDepartment(Department department)
         {
             try
@@ -154,7 +148,6 @@ namespace WebAppEmp.Controllers
         [HttpGet]
         [Route("[action]")]
         [Route("/listdepartment")]
-        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<IEnumerable<Department>>> GetDepartment()
         {
             try
@@ -171,7 +164,6 @@ namespace WebAppEmp.Controllers
         [HttpPost]
         [Route("action")]
         [Route("/addemployee")]
-        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<Employee>> AddEmployee(Employee employee)
         {
             try
@@ -190,7 +182,6 @@ namespace WebAppEmp.Controllers
         [HttpGet]
         [Route("[action]")]
         [Route("/listemployee")]
-        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<IEnumerable<EmployeeVieewModel>>> GetEmployee()
         {
             try
@@ -264,7 +255,6 @@ namespace WebAppEmp.Controllers
         [HttpPut]
         [Route("[action]")]
         [Route("/updateemployee")]
-        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<Employee>> UpdateEmployee(Employee employee)
         {
             try
@@ -283,7 +273,6 @@ namespace WebAppEmp.Controllers
         [HttpDelete]
         [Route("[action]")]
         [Route("/deleteemployee")]
-        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<Employee>> DeleteEmployee(Int32 employeeid)
         {
             try
@@ -309,8 +298,7 @@ namespace WebAppEmp.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        [Route("/searchemployee")]
-        [EnableCors("AllowOrigin")]
+        [Route("/searchemployee")]         
         public async Task<ActionResult<IEnumerable<Employee>>> SearchEmployee(string searchtext)
         {
             try
@@ -327,7 +315,6 @@ namespace WebAppEmp.Controllers
         [HttpGet]
         [Route("[action]")]
         [Route("/searchemployeeshort")]
-        [EnableCors("AllowOrigin")]
         public async Task<ActionResult<IEnumerable<Employee>>> SearchEmployeeSort(string searchtext)
         {
             try
